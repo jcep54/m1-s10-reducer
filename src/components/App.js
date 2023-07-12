@@ -1,11 +1,13 @@
-import React from 'react';
-
+import React,{useReducer} from 'react';
+import reducer,{initialState} from '../reducers/index';
+import {addOne, applyNumber} from '../actions/index';
 import './App.css';
 
 import TotalDisplay from './TotalDisplay';
 import CalcButton from './CalcButton';
 
 function App() {
+  const [state, dispatch] = useReducer(reducer,initialState)
   return (
     <div className="App">
       <nav className="navbar navbar-dark bg-dark">
@@ -16,20 +18,20 @@ function App() {
         <div className="col-md-12 d-flex justify-content-center">
           <form name="Cal">
             
-            <TotalDisplay value={0}/>
+            <TotalDisplay value={state.total}/>
             <div className="row details">
-              <span id="operation"><b>Operation:</b> X</span>
-              <span id="memory"><b>Memory:</b> 0</span>
+              <span id="operation"><b>Operation:</b> {state.operation}</span>
+              <span id="memory"><b>Memory:</b> {state.memory}</span>
             </div>
             
             <div className="row">
               <CalcButton value={"M+"}/>
               <CalcButton value={"MR"}/>
-              <CalcButton value={"MC"}/>
+              <CalcButton value={"MC"} />
             </div>
-
+            {console.log(state.total)}
             <div className="row">
-              <CalcButton value={1}/>
+              <CalcButton value={1} onClick={() =>dispatch(applyNumber(1))}/>
               <CalcButton value={2}/>
               <CalcButton value={3}/>
             </div>
