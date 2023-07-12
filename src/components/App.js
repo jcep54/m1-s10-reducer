@@ -26,7 +26,7 @@ function App() {
             
             <div className="row">
               <CalcButton value={"M+"} onClick={() =>{dispatch(setMemory())}}/>
-              <CalcButton value={"MR"}/>
+              <CalcButton value={"MR"} onClick={() =>{dispatch(applyMemory())}}/>
               <CalcButton value={"MC"} onClick={() =>{dispatch(clearMemory())}}/>
             </div>
             <div className="row">

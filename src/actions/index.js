@@ -22,8 +22,8 @@ export const clearDisplay = () =>{
     return ({type: CLEAR_DISPLAY});
 }
 
-export const setMemory = (number) =>{
-    return ({type: SET_MEMORY, payload: number});
+export const setMemory = () =>{
+    return ({type: SET_MEMORY});
 }
 
 export const clearMemory = () =>{
